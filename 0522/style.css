@@ -1,45 +1,51 @@
 *{
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: '標楷體';
     font-weight: 500;
 }
 .header{
     width: 1024px;
     height: 65px;
     margin: auto;
+    border: 3px double black;
 }
 .container{
     width: 1024px;
     height: calc(768px - 65px - 20px);
-    background-color: aqua;
+    /* background-color: aqua; */
     margin: auto;
     display: flex;
+    border: 3px double black;
+    border-top: 0;
 }
 .container-left{
     width: 215px;
     height: 100%;
-    background-color: beige;
+    /* background-color: beige; */
 }
 .menu{
     width: 100%;
     height: calc(100% - 25px);
-    background-color: lightcoral;
+    /* background-color: lightcoral; */
 }
 h1{
     font-size: 24px;
     text-decoration: underline black;
+    text-underline-offset: 5px;
     color: #FF00FF;
     text-align: center;
 }
 .club{
-    width: 85%;
-    height: 8%;
+    width: 200px;
+    height: 35px;
     background-image: url(./images/menu1.png);
     background-repeat: no-repeat;
     background-size: 100%;
     text-align: center;
     font-size: 16px;
     padding-top: 5px;
+    margin: auto;
+    margin-top: 10px;
 }
 .club:hover{
     background-image: url(./images/menu2.png);
@@ -47,21 +53,40 @@ h1{
 .update{
     width: 100%;
     height: 25px;
-    background-color: lightblue;
+    /* background-color: lightblue; */
+    border-top: 3px double black;
+    font-size: 16px;
+    text-align: center;
+
 }
 .container-right{
     width: calc(100% - 215px);
     height: 100%;
-    background-color: blue;
+    /* background-color: blue; */
+    border-left: 3px double black;
 }
 .marquee{
     width: 100%;
     height: 29px;
-    background-color: lightgoldenrodyellow;
+    /* background-color: lightgoldenrodyellow; */
+    border-bottom: 3px double black;
+    font-size: 24px;
+    color: #0000FF;
+}
+.content{
+    width: 100%;
+    height: calc(100% - 29px);
+}
+
+iframe{
+    width: 100%;
+    height: calc(100% - 3px);
 }
 .footer{
     width: 1024px;
     height: 20px;
-    background-color: aquamarine;
+    /* background-color: aquamarine; */
     margin: auto;
+    border: 3px double black;
+    border-top: 0;
 }
