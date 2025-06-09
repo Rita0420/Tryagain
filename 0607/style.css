@@ -1,0 +1,81 @@
+*{
+    margin: 0;
+}
+header{
+    width: 70vw;
+    height: 10vh;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    /* position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%); */
+}
+
+.logo{
+    width: 33%;
+    height: 100%;
+    background-color: aqua;
+}
+
+.one{
+    height: 100%;
+}
+
+.title{
+    width: 33%;
+    height: 100%;
+    background-color:aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    width: 33%;
+    height: 100%;
+    background-color:blue;
+}
+
+table,th,tr,td{
+    border: 1px solid black;
+}
+table{
+    width: 70vw;
+    margin: auto;
+    /* margin-top: 10vh; */
+    text-align: center;
+}
+.id{
+    width: 3%;
+}
+.name{
+    width: 10%;
+}
+.pic{
+    width: 20%;
+}
+.coffee{
+    width: 100%;
+}
+
+.cart{   
+    width: 10vw;
+    height: 10vh;
+    background-color: azure;
+    position: fixed;
+    top: 50%;
+    right: 1vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+.car{
+    height: 60%;
+}
+.money{
+    width: 50%;
+}

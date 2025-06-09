@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./img/one.png" alt="" class="one">
+        </div>
+        <div class="title">
+            <h1>飲品清單</h1>
+        </div>
+        <div class="box"></div>
+    </header>
+
+    <main>
+        <table>
+            <tr>
+                <th class="id"></th>
+                <th class="name">品項</th>
+                <th class="pic">飲品圖片</th>
+                <th>價格</th>
+                <th>數量</th>
+                <th>金額</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>美式</td>
+                <td>
+                    <img src="./img/americano.jpg" alt="" class="coffee">
+                </td>
+                <td>115</td>
+                <td>
+                    <input type="number" class="count" id="americano" data-price="115" min="0">
+                </td>
+                <td>
+                    <div class="money"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>拿鐵</td>
+                <td>
+                    <img src="./img/latte.jpg" alt="" class="coffee">
+                </td>
+                <td>140</td>
+                <td>
+                    <input type="number" class="count" id="latte" data-price="140" min="0">
+                </td>
+                <td>
+                    <div class="money"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>焦糖瑪奇朵</td>
+                <td>
+                    <img src="./img/macchiato.jpg" alt="" class="coffee">
+                </td>
+                <td>160</td>
+                <td>
+                    <input type="number" class="count" id="macchiato" data-price="160" min="0">
+                </td>
+                <td>
+                    <div class="money"></div>
+                </td>
+            </tr>
+        </table>
+        <div class="cart">
+            <img src="./img/shopping_cart.png" alt="" class="car">
+            <div class="total">1000</div>
+        </div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            const count = $('.count');
+            const money = $('.money');
+
+            count.change(function(){
+                console.log('count ok',count);
+                let countValue = Number($(this).val());
+                console.log('countValue',countValue);
+                let price = Number($(this).attr('data-price'));
+                console.log('price',price);
+
+                let result = countValue * price;
+
+                let tmpTr = $(this).parent().parent();
+                console.log('tnpTr',tmpTr);
+                let tmpClass = tmpTr.find('.money');
+                console.log('tmpClass',tmpClass);
+                
+                let box = tmpClass.text(result);
+
+                let total = Number(box);
+                console.log('total',total);
+                
+                
+                
+            })
+
+        })
+
+    </script>
+</body>
+
+</html>
