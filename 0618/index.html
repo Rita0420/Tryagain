@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>複利計算</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container-left">
+            <form action="">
+                <div class="box">
+                <label for="">本金&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</label>
+                <input type="text" class="moneyInput" value="100">
+                </div>
+                <div class="box">
+                <label for="">利率(%)&nbsp;:</label>
+                <input type="text" class="rateInput" value="8">
+                </div>
+                <div class="box">
+                <label for="">年限(年):</label>
+                <input type="text" class="yearInput" value="10">
+                </div>
+            </form>
+        </div>
+        <div class="container-right">
+            <div class="box1">
+                <div class="year">年</div>
+                <div class="money">本利和</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            const money=$('.moneyInput');
+            const year=$('.yearInput');
+            const rate=$('.rateInput');
+        });
+    </script>
+</body>
+</html>
