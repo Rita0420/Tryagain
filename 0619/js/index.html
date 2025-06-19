@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <style>
+        .container {
+            width: 30vw;
+            height: 40vh;
+            background-color: lightblue;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 10vw;
+            margin-top: 2vh;
+        }
+
+        .ans {
+            width: 30vw;
+            height: 10vh;
+            border: 1px solid;
+            margin: auto;
+            text-align: center;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <input type="number" class="inputA" value="10">
+        <input type="text" class="math" value="+">
+        <input type="number" class="inputB" value="5">
+        <input type="submit" value="計算" class="myBtn">
+    </div>
+    <hr>
+    <div class="ans"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            const inputA = $('.inputA');
+            const math = $('.math');
+            const inputB = $('.inputB');
+            const myBtn = $('.myBtn');
+            const ans = $('.ans');
+
+
+
+            myBtn.click(function () {
+                console.log('ok');
+                let Avalue = Number(inputA.val());
+                let mathValue = math.val();
+                let Bvalue = Number(inputB.val());
+                console.log('inputA', Avalue);
+                console.log('math', mathValue);
+                console.log('inputB', Bvalue);
+                let result = 0;
+                switch (mathValue) {
+                    case '+':
+                        result = Avalue + Bvalue;
+                        break;
+                    case '-':
+                        result = Avalue - Bvalue;
+                        break;
+                    case '*':
+                        result = Avalue * Bvalue;
+                        break;
+                    case '/':
+                        result = Avalue / Bvalue;
+                        break;
+
+                    default:
+                        result = "請輸入＋-*/"
+                        break;
+                }
+                console.log(result);
+
+                ans.text(result);
+
+            })
+
+
+
+        });
+    </script>
+</body>
+
+</html>
