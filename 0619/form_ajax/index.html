@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form->ajax</title>
+    <style>
+        form {
+            width: 30vw;
+            height: 40vh;
+            background-color: lightblue;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 10vw;
+            margin-top: 2vh;
+        }
+
+        .ans {
+            width: 30vw;
+            height: 10vh;
+            border: 1px solid;
+            margin: auto;
+            text-align: center;
+            font-size: 2em;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="get" id="myForm">
+        <input type="number" name="inputA" id="inputA" value="10">
+        <input type="text" name="math" id="math" value="+">
+        <input type="number" name="inputB" id="inputB" value="5">
+        <input type="submit" value="計算" id="submit">
+    </form>
+    <hr>
+    <div class="ans">
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            const myForm = $('#myForm');
+            const ans=$('.ans');
+            myForm.submit(function (e) {
+                e.preventDefault();
+                let url = "./data.php";
+                let data = $(this).serializeArray();
+                console.log('this', $(this));
+                console.log('data', data);
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log(response);
+                        $.each(response, function (key, value) {
+                            console.log('key', key);
+                            console.log('value', value);
+                            let math = response['math'];
+                            let inputA = Number(response['inputA']);
+                            let inputB = Number(response['inputB']);
+                            console.log('math', math);
+                            console.log('inputA', inputA);
+
+                            switch (math) {
+                                case '+':
+                                    result = inputA + inputB;
+                                    break;
+                                case '-':
+                                    result = inputA - inputB;
+                                    break;
+                                case '*':
+                                    result = inputA * inputB;
+                                    break;
+                                case '/':
+                                    result = inputA / inputB;
+                                    break;
+
+                                default:
+                                    result="請輸入＋-*/"
+                                    break;
+                            }
+                            console.log('result', result);
+                            ans.text(result);
+
+                        });
+
+
+                    }
+                });
+
+            });
+
+        });
+    </script>
+</body>
+
+</html>
