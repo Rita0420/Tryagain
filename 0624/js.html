@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <style>
+        .container {
+            width: 30vw;
+            height: 50vh;
+            background-color: lightseagreen;
+            margin: auto;
+            border-radius: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 10vw;
+            margin-top: 6vh;
+        }
+
+        .hr {
+            width: 30vw;
+            margin: auto;
+        }
+
+        .ans {
+            width: 30vw;
+            height: 20vh;
+            border: 2px solid;
+            border-radius: 30px;
+            margin: auto;
+            font-size: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="" method="get">
+            <input type="number" class="inputA" value="10">
+            <input type="text" class="opt" value="+">
+            <input type="number" class="inputB" value="2">
+            <input type="button" value="送出" class="myBtn">
+        </form>
+    </div>
+    <div class="hr">
+        <hr>
+    </div>
+    <div class="ans"></div>
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+    </script>
+
+<script>
+    $(document).ready(function () {
+        const inputA = $('.inputA');
+        const opt = $('.opt');
+        const inputB = $('.inputB');
+        const myBtn = $('.myBtn');
+        const ans = $('.ans');
+
+        console.log('inputA', inputA);
+
+        myBtn.click(function () {
+            console.log('myBtn ok', myBtn);
+            let Avalue = Number(inputA.val());
+            let Bvalue = Number(inputB.val());
+            let optValue = opt.val();
+            console.log('A', Avalue);
+            console.log('A typeOf', typeof (Avalue));
+
+            switch (optValue) {
+                case '+':
+                    result = Avalue + Bvalue;
+                    break;
+
+                    case '-':
+                    result = Avalue - Bvalue;
+                    break;
+
+                    case '*':
+                    result = Avalue * Bvalue;
+                    break;
+
+                    case '/':
+                    result = Avalue / Bvalue;
+                    break;
+
+                default:
+                    result="請輸入+-*/"
+                    break;
+            }
+
+            ans.text(result);
+
+
+        })
+    });
+</script>
+
+</html>

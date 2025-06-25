@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js</title>
+    <style>
+        .container {
+            width: 30vw;
+            height: 50vh;
+            background-color: lightseagreen;
+            margin: auto;
+            border-radius: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input {
+            width: 10vw;
+            margin-top: 6vh;
+        }
+
+        .hr {
+            width: 30vw;
+            margin: auto;
+        }
+
+        .ans {
+            width: 30vw;
+            height: 20vh;
+            border: 2px solid;
+            border-radius: 30px;
+            margin: auto;
+            font-size: 2em;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form action="./data.php" method="get" class="myForm">
+            <input type="number" class="inputA" value="10" name="inputA">
+            <input type="text" class="opt" value="+" name="opt">
+            <input type="number" class="inputB" value="2" name="inputB">
+            <input type="submit" value="送出" class="myBtn">
+        </form>
+    </div>
+    <div class="hr">
+        <hr>
+    </div>
+    <div class="ans">
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+        </script>
+
+    <script>
+        $(document).ready(function () {
+            const myForm = $('.myForm');
+            const ans = $('.ans');
+
+            myForm.submit(function (e) {
+                e.preventDefault();
+                let url = "./data.php";
+                let data = $(this).serializeArray();
+                $.ajax({
+                    type: "get",
+                    url: url,
+                    data: data,
+                    dataType: "json",
+                    success: function (response) {
+                        console.log('response', response);
+                        $.each(response, function (key, value) {
+                            console.log('key', key);
+                            console.log('key typeOf', typeof (key));
+                            console.log('value', value);
+                            console.log('value typeOf', typeof (value));
+                            let Avalue = Number(response['inputA']);
+                            let Bvalue = Number(response['inputB']);
+                            let opt = response['opt'];
+                            console.log('A', Avalue);
+                            console.log('A typeOf', typeof (Avalue));
+
+                            switch (opt) {
+                                case '+':
+                                    result = Avalue + Bvalue;
+                                    break;
+
+                                case '-':
+                                    result = Avalue - Bvalue;
+                                    break;
+
+                                case '*':
+                                    result = Avalue * Bvalue;
+                                    break;
+
+                                case '/':
+                                    result = Avalue / Bvalue;
+                                    break;
+
+                                default:
+                                    result = "請輸入+-*/";
+                                    break;
+                            }
+                            ans.text(result);
+
+                        });
+                    }
+                });
+
+
+            });
+
+
+
+        });
+    </script>
+</body>
+
+</html>
