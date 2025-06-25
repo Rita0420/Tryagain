@@ -44,7 +44,7 @@
 
 <body>
     <div class="container">
-        <form action="./data.php" method="get" class="myForm">
+        <form  method="get" class="myForm">
             <input type="number" class="inputA" value="10" name="inputA">
             <input type="text" class="opt" value="+" name="opt">
             <input type="number" class="inputB" value="2" name="inputB">
@@ -77,42 +77,10 @@
                     data: data,
                     dataType: "json",
                     success: function (response) {
-                        console.log('response', response);
-                        $.each(response, function (key, value) {
-                            console.log('key', key);
-                            console.log('key typeOf', typeof (key));
-                            console.log('value', value);
-                            console.log('value typeOf', typeof (value));
-                            let Avalue = Number(response['inputA']);
-                            let Bvalue = Number(response['inputB']);
-                            let opt = response['opt'];
-                            console.log('A', Avalue);
-                            console.log('A typeOf', typeof (Avalue));
-
-                            switch (opt) {
-                                case '+':
-                                    result = Avalue + Bvalue;
-                                    break;
-
-                                case '-':
-                                    result = Avalue - Bvalue;
-                                    break;
-
-                                case '*':
-                                    result = Avalue * Bvalue;
-                                    break;
-
-                                case '/':
-                                    result = Avalue / Bvalue;
-                                    break;
-
-                                default:
-                                    result = "請輸入+-*/";
-                                    break;
-                            }
-                            ans.text(result);
-
-                        });
+                       console.log(response);
+                       let result=response['result'];
+                       console.log('result',result);
+                       ans.text(result);
                     }
                 });
 
